@@ -4,8 +4,6 @@ import * as actions from "../state/action-creators";
 
 function Form(props) {
 
-    console.log(props)
-
     const handleSelect = event => {
         props.setSelected(event.target.value);
     }
