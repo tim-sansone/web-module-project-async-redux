@@ -4,7 +4,7 @@ function Form(){
     return (
         <div>
             <form>
-                <label for="activity-type">What Type of Activity Do Are You in the Mood For?</label>
+                <label htmlFor="activity-type">What Type of Activity Do Are You in the Mood For?</label>
                 <select name="activity-type">
                     <option value="">-- Select a Type --</option>
                     <option value="education">Educational</option>
