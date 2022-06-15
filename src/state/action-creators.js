@@ -1,9 +1,18 @@
 import * as types from "./action-types"
+import axios from "axios"
 
 export const setSelected = (selected) => {
-    return { type: SET_SELECTED, payload: selected }
+    return { type: types.SET_SELECTED, payload: selected }
 }
 
-export const setDisplay = (activity) => {
-    return { type: SET_DISPLAY, payload: activity}
+export const getDisplay = (type) => {
+    return function(dispatch){
+        axios.get(`http://www.boredapi.com/api/activity?type=${type}`)
+            .then(res => {
+                dispatch({ type: types.SET_DISPLAY, payload: res.data })
+            })
+            .catch(err => {
+                debugger
+            })
+    }
 }

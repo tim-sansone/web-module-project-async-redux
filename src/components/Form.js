@@ -1,11 +1,25 @@
 import React from "react";
+import { connect } from "react-redux";
+import * as actions from "../state/action-creators";
 
-function Form(){
+function Form(props) {
+
+    console.log(props)
+
+    const handleSelect = event => {
+        props.setSelected(event.target.value);
+    }
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        props.getDisplay(props.form.selected);
+    }
+
     return (
         <div>
             <form>
                 <label htmlFor="activity-type">What Type of Activity Do Are You in the Mood For?</label>
-                <select name="activity-type">
+                <select name="activity-type" onChange={handleSelect}>
                     <option value="">-- Select a Type --</option>
                     <option value="education">Educational</option>
                     <option value="recreational">Recreational</option>
@@ -17,10 +31,10 @@ function Form(){
                     <option value="music">Musical</option>
                     <option value="busywork">Busywork</option>
                 </select>
-                <button>Get Activity!</button>
+                <button onClick={e => handleSubmit(e)}>Get Activity!</button>
             </form>
         </div>
     )
 }
 
-export default Form;
+export default connect(state => state, actions)(Form);
