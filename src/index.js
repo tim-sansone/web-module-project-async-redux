@@ -8,8 +8,7 @@ import App from './components/App';
 import reducer from "./state/reducer";
 import './index.css';
 
-const store = createStore(reducer, applyMiddleware(thunk))
-console.log(store)
+const store = createStore(reducer, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>

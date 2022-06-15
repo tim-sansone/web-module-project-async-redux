@@ -3,14 +3,13 @@ import { connect } from "react-redux";
 import * as actions from "../state/action-creators";
 
 function Display(props){
-    const { activity } = props.display;
-    
+    const { activity, display } = props.display;
+
+    const displayText = `Today you should ${display && activity.activity.toLowerCase()}! You will need ${activity.participants} ${ activity.participants === 1 ? "person" : "people" } and it will cost ${activity.price} arbitrary units.`
+
     return (
-        <div>
-            <p>Activity: {activity.activity}</p>
-            <p>Type: {activity.type}</p>
-            <p>Number of participants: {activity.participants}</p>
-            <p>Cost in arbitrary units: {activity.price}</p>
+        <div className="display-container">
+            { display ? <p>{displayText}</p> : <h3>Use form below</h3> }
         </div>
     )
 }

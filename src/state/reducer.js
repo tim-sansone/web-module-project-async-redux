@@ -1,10 +1,7 @@
 import * as types from "./action-types"
 import { combineReducers } from "redux"
 
-const initialForm = {
-    selected: ""
-}
-
+const initialForm = { selected: "" }
 function form(state = initialForm, action){
     switch(action.type){
         case types.SET_SELECTED:
@@ -16,16 +13,19 @@ function form(state = initialForm, action){
     }
 }
 
-const initialDisplay = {
-    activity: {}
-}
-
+const initialDisplay = { activity: {}, display: false }
 function display(state = initialDisplay, action){
     switch(action.type){
         case types.SET_DISPLAY:
             return {
                 ...state,
                 activity: action.payload
+            }
+
+        case types.DISPLAY_DISPLAY:
+            return {
+                ...state,
+                display: true
             }
         
         default: return state;

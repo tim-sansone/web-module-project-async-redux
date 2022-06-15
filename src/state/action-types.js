@@ -1,2 +1,3 @@
 export const SET_SELECTED = "SET_SELECTED"
 export const SET_DISPLAY = "SET_DISPLAY"
+export const DISPLAY_DISPLAY = "DISPLAY_DISPLAY"

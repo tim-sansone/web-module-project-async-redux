@@ -15,8 +15,8 @@ function Form(props) {
 
     return (
         <div>
-            <form>
-                <label htmlFor="activity-type">What Type of Activity Do Are You in the Mood For?</label>
+            <form className="form">
+                <label htmlFor="activity-type">What type of activity are you in the mood for?</label>
                 <select name="activity-type" onChange={handleSelect}>
                     <option value="">-- Select a Type --</option>
                     <option value="education">Educational</option>
